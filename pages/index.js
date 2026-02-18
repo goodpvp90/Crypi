@@ -1,8 +1,10 @@
 import Link from 'next/link';
 import { useTheme } from '../context/ThemeContext';
+import { useAuth } from '../context/AuthContext';
 
 export default function Home() {
   const { isDarkMode } = useTheme();
+  const { user, loading } = useAuth();
   
   return (
     <div className={`min-h-screen flex flex-col justify-center items-center px-4 py-8
@@ -36,6 +38,21 @@ export default function Home() {
               About Us
             </a>
           </Link>
+          {!loading && (
+            user ? (
+              <Link href="/wallet" legacyBehavior>
+                <a className="bg-cyan-500 hover:bg-cyan-600 text-white py-3 px-6 rounded-lg shadow-lg text-lg transition">
+                  My Wallet
+                </a>
+              </Link>
+            ) : (
+              <Link href="/login" legacyBehavior>
+                <a className="bg-gray-700 hover:bg-gray-600 text-white py-3 px-6 rounded-lg shadow-lg text-lg transition">
+                  Login
+                </a>
+              </Link>
+            )
+          )}
         </div>
       </div>
 
