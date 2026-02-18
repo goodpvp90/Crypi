@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
 import { useRouter } from 'next/router';
 import { useTheme } from '../../context/ThemeContext';
-import CoinInfo from '/components/CoinInfo';
-import LiveGraph from '/components/LiveGraph';
-import HistoricalData from '/components/HistoricalData';
-import LivePrice from '/components/LivePrice';
+import CoinInfo from '../../components/CoinInfo';
+import LiveGraph from '../../components/LiveGraph';
+import HistoricalData from '../../components/HistoricalData';
+import LivePrice from '../../components/LivePrice';
 
 const CoinDetail = () => {
   const router = useRouter();
